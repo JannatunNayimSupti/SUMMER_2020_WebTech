@@ -1,8 +1,20 @@
 <?php
+
+ 
+ 
+
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		$name = $_POST['sname'];
-		if($name == ""){ echo "name is required";}
-	}
+		
+    if(isset($_POST["sname"])){
+      if($_POST["sname"]==""){
+      echo "name can't left empty";}
+    }
+
+     
+    }
+
+    
+      
 ?>
 
 
@@ -14,25 +26,26 @@
 <body>
 
 	<form method="post">
-		1.Name: <input type="text" name="sname" value="" placeholder=""><?php if(!isset($name)){echo "can't left empty";}?>
+		1.Name: <input type="text" name="sname" pattern="[a-zA-Z][a-zA-Z ]{1,}" required>
+    
 		<br> 
 		<input type="submit" name="" value="Submit">
 <hr>
-       2.Email:<input type="email" id="email" name="email"> <br>
+       2.Email:<input type="email" id="email" name="email" pattern="([abc123@sdsd.com])" required> <br>
        <input type="submit" name="" value="Submit">
 
        <hr>
 
        <fieldset>
        <legend> 3. Gender</legend>
-       	 <input type="radio" id="male" name="gender" value="male">
+       	 <input type="radio" id="male" name="gender" value="male" required>
   <label for="male">Male</label><br>
-  <input type="radio" id="female" name="gender" value="female">
+  <input type="radio" id="female" name="gender" value="female" required>
   <label for="female">Female</label><br>
-  <input type="radio" id="other" name="gender" value="other">
+  <input type="radio" id="other" name="gender" value="other" required>
   <label for="other">Other</label>
   <br>
-   <input type="submit" name="" value="Submit">
+   <input type="submit" name="" value="Submit" >
 
 
        </fieldset>
@@ -40,21 +53,22 @@
 
        <fieldset>
        	<legend>4. Date of Birth</legend>
-          <input type="date" id="birthday" name="birthday">
+          <input type="date" id="birthday" name="birthday" pattern="([0-9]{2})\/([0-9]{2})\/([0-9]{4})" required>
        	<br>
        	<hr> 
        	<input type="submit" name="" value="Submit">
        </fieldset>
 
-       <fieldset>
+       <fieldset >
        	<legend>5.Degree</legend>
-       	 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+
+       	 <input type="checkbox" id="" name="" value="" required>
   <label for=""> SSC</label><br>
-  <input type="checkbox" id="" name="" value="">
+  <input type="checkbox" id="" name="" value="" >
   <label for=""> HSC </label><br>
-  <input type="checkbox" id="" name="" value="">
+  <input type="checkbox" id="" name="" value="" >
   <label for=""> BSc</label><br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="submit" required >
        </fieldset>
 
      <label for="bloodgroup:">6.Blood Group </label>
@@ -69,8 +83,8 @@
 
      <fieldset>
      	<legend>Profile Picture</legend>
-     	User ID:<input type="ID" name="" value="">
-     	Picture<input type="file" name="" value="file">
+     	User ID:<input type="number" name="" value="" required pattern="">
+     	Picture<input type="file" name="" value="file" required="">
      	<hr>
      	<input type="submit" name="" value="Submit">
 
@@ -97,7 +111,7 @@
             		<p> Name  </p> 
             	</td>
             	<td width="200px">
-            		<input type="text" name="" value="" size="100px">
+            		<input type="text" name="" value="" size="100px" pattern="[a-zA-Z][a-zA-Z ]{1,}" required>
             	</td>
             	<td width="200px"></td>
             </tr>
@@ -107,7 +121,7 @@
             		<p> Email </p>
             	</td>
             	<td width="200px">
-            		<input type="text" name="" value="" size="100px">
+            		<input type="text" name="" value="" size="100px" pattern="([abc123@sdsd.com])" required>
             		
             	</td>
             	<td width="200px"></td>
@@ -118,9 +132,9 @@
                 
             	 </td>
             	<td width="200px">
-            		Male <input type="radio" name="gender">
-            		Female <input type="radio" name="gender">
-            		Other <input type="radio" name="gender">
+            		Male <input type="radio" name="gender" required>
+            		Female <input type="radio" name="gender" required>
+            		Other <input type="radio" name="gender" required>
             	</td>
             	<td width="200px" ></td>
             </tr>
@@ -130,7 +144,7 @@
                <p> Date_of_Birth</p>
             	</td>
             	<td width="200px">
-            		<input type="date" name="">
+            		<input type="date" name="" required>
             	</td>
             	<td width="200px"></td>
             </tr>
@@ -152,7 +166,7 @@
              <tr  height="50px">
             	<td> <p> Degree</p></td>
             	<td width="200px">
-            		<input type="checkbox" name=""> SSC
+            		<input type="checkbox" name="" required> SSC
             		<input type="checkbox" name=""> HSC
             		<input type="checkbox" name=""> BSc
 
@@ -165,7 +179,7 @@
             		<p>Photo</p>
             	</td>
             	<td width="200px">
-            		<input type="file" name="">
+            		<input type="file" name="" required>
             		            	</td>
             	<td width="200px"></td>
             </tr>
