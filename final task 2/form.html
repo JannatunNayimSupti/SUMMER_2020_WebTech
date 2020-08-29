@@ -1,0 +1,102 @@
+<html>
+<head>
+	<title>Home</title>
+	<script type="text/javascript" src="form.js"></script>
+</head>
+<body>
+	<form name="myform" method="post" action="form.php" onsubmit="return validate()">
+		<table border="1" width="500px" height="300px" align="center">
+			<tr>
+				<td colspan="3" align="center" height="30%"><h1> PERSON PROFILE</h1>
+				</td>			
+			</tr>
+			<tr>
+				<td  width="20%">Name
+				</td>
+				<td width="30px">
+					<input type="text" id="name1" name="name" onkeyup="removerName()" size="30px" height="100" width="100" >
+				</td>
+				<td width="5%" id="nmsg">
+				</td>
+			</tr>
+			<tr>
+				<td>Email
+				</td>
+				<td>
+					<input type="email" id="email" name="email" onkeyup="removerEmail()" size="30px">
+				</td>
+				<td id="emsg">
+				</td>
+			</tr>
+			<tr>
+				<td>Gender
+				</td>
+				<td>
+				<input type="radio" id="gen1" name="gender" value="Male" onclick="removerGender()">  Male 
+				<input type="radio" id="gen2" name="gender" value="Female" onclick="removerGender()"> Female
+				<input type="radio" id="gen3" name="gender" value="Other" onclick="removerGender()"> Other
+				</td>
+				<td id="gmsg">
+				</td>
+			</tr>
+			<tr>
+				<td>Date of Birth
+				</td>
+				<td>
+					<input type="text" id="id1" name="date" onkeyup="removerDob()"size="5px">/
+					<input type="text" id="id2" name="month" onkeyup="removerDob()"size="5px">/
+					<input type="text" id="id3" name="year" onkeyup="removerDob()"size="5px">   <i>(dd/mm/yyyy)</i>
+				</td>
+				<td id="dobmsg">
+				</td>
+			</tr>
+			<tr>
+				<td>Blood Group
+				</td>
+				<td>
+					<select name="bg">
+						<option>Select</option>
+						<option value="A+">A+</option>
+						<option value="A-">A-</option>
+						<option value="B+">B+</option>
+						<option value="B-">B-</option>
+						<option value="AB+">AB+</option>
+						<option value="AB-">AB-</option>
+						<option value="O+">O+</option>
+						<option value="O-">O-</option>
+			</select>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>Degree
+				</td>
+				<td>
+					<input type="checkbox" id="deg1" name="ssc" value="SSC" onclick="removerDegree()"> SSC
+					<input type="checkbox" id="deg2" name="hsc" value="HSC" onclick="removerDegree()"> HSC
+					<input type="checkbox" id="deg3"name="bsc" value="Bsc" onclick="removerDegree()"> BSc.
+				</td>
+				<td id="dmsg">
+				</td>
+			</tr>
+			<tr>
+				<td>Photo
+				</td>
+				<td colspan="2">
+					<input type="file" id="pic1" name="upload" onclick="removerPicture()">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center" height="30px" id="dis">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="right">
+					<input type="submit" name="submit" value="Submit"> 
+			<input type="reset" name="" value="Clear"> 
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
