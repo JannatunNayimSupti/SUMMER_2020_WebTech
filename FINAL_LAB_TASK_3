@@ -1,0 +1,265 @@
+<?php
+
+	// if (isset($_GET['error'])) {
+		
+	// 	if($_GET['error'] == 'db_error'){
+	// 		echo "Something went wrong...please try again";
+	// 	}
+	// }
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SignUp</title>
+</head>
+<body>
+
+	<form action="../php/regCheck.php" method="post" >
+		<fieldset>
+			<legend>SignUp</legend>
+			<table>
+				<tr>
+					<td>Id</td>
+					<td><input type="text" name="id"></td>
+				</tr>
+				
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password"></td>
+				</tr>
+				<tr>
+					<td>Confirm Password</td>
+					<td><input type="password" name="confirm_password"></td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type="text" id="email" name="email" onkeyup="f2()" onblur="validateEmail()">
+					</td>
+					<td id="disp"></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><input type="button" name="submit" value="Submit" onclick="f1()">
+						<a href="login.php" style="display: none;">Login</a>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+	<script type="text/javascript">
+		function f1()
+		{
+			var name = document.getElementByTagName('name').value;
+			var xhttp = new XMLHttpRequest();
+			xhttp.open('POST', '../php/name_Check.php', true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.send('name='+name);
+
+			xhttp.onreadystatechange = function ()
+			if(this.readyState == 4 && this.status == 200)
+			{
+
+				if(this.responseText != ""){
+					document.getElementByTagName('disp').innerHTML = this.responseText;
+				}else{
+					document.getElementByTagName('disp').innerHTML = "";
+				}
+				
+			}	
+			
+		}
+
+		
+		function validateName()
+{
+	var fname = document.getElementByTagName('name').value;
+	//var n = femail.length;
+
+	if (fname == "")
+	{
+		//alert("email must be filled up");
+		document.getElementByTagName('disp').innerHTML="Field cannot be empty";
+		return false;
+	}
+	else
+	{
+		document.getElementByTagName('disp').innerHTML="";
+		return true;
+	}
+	}
+		function f2()
+		{
+			var email = document.getElementById('email').value;
+			var xhttp = new XMLHttpRequest();
+			xhttp.open('POST', '../php/email_Check.php', true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.send('email='+email);
+
+			xhttp.onreadystatechange = function (){
+			if(this.readyState == 4 && this.status == 200)
+			{
+
+				if(this.responseText != ""){
+					document.getElementById('disp').innerHTML = this.responseText;
+				}else{
+					document.getElementById('disp').innerHTML = "";
+				}
+				
+			}	
+			
+		}
+	}
+
+	function validateEmail()
+{
+	var femail = document.getElementById('email').value;
+	//var n = femail.length;
+
+	if (femail == "")
+	{
+		//alert("email must be filled up");
+		document.getElementById('disp').innerHTML="Field cannot be empty";
+		return false;
+	}
+	else
+	{
+		document.getElementById('disp').innerHTML="";
+		return true;
+	}
+	}
+	function f3()
+		{
+			var email = document.getElementById('id').value;
+			var xhttp = new XMLHttpRequest();
+			xhttp.open('POST', '../php/id_Check.php', true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.send('email='+email);
+
+			xhttp.onreadystatechange = function (){
+			if(this.readyState == 4 && this.status == 200)
+			{
+
+				if(this.responseText != ""){
+					document.getElementById('disp').innerHTML = this.responseText;
+				}else{
+					document.getElementById('disp').innerHTML = "";
+				}
+				
+			}	
+			
+		}
+	}
+
+	function validateid()
+{
+	var fid = document.getElementById('id').value;
+	//var n = femail.length;
+
+	if (fid== "")
+	{
+		//alert("email must be filled up");
+		document.getElementById('disp').innerHTML="Field cannot be empty";
+		return false;
+	}
+	else
+	{
+		document.getElementById('disp').innerHTML="";
+		return true;
+	}
+	}
+function f4()
+		{
+			var password = document.getElementById('password').value;
+			var xhttp = new XMLHttpRequest();
+			xhttp.open('POST', '../php/password_Check.php', true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.send('password='+password);
+
+			xhttp.onreadystatechange = function (){
+			if(this.readyState == 4 && this.status == 200)
+			{
+
+				if(this.responseText != ""){
+					document.getElementById('disp').innerHTML = this.responseText;
+				}else{
+					document.getElementById('disp').innerHTML = "";
+				}
+				
+			}	
+			
+		}
+	}
+
+	function validatepassword()
+{
+	var fpassword = document.getElementById('password').value;
+	//var n = femail.length;
+
+	if (fpassword== "")
+	{
+		//alert("email must be filled up");
+		document.getElementById('disp').innerHTML="Field cannot be empty";
+		return false;
+	}
+	else
+	{
+		document.getElementById('disp').innerHTML="";
+		return true;
+	}
+	}
+function f4()
+		{
+			var confirm_password= document.getElementById('confirm_password').value;
+			var xhttp = new XMLHttpRequest();
+			xhttp.open('POST', '../php/con_password_Check.php', true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.send('confirm_password='+confirm_password);
+
+			xhttp.onreadystatechange = function (){
+			if(this.readyState == 4 && this.status == 200)
+			{
+
+				if(this.responseText != ""){
+					document.getElementById('disp').innerHTML = this.responseText;
+				}else{
+					document.getElementById('disp').innerHTML = "";
+				}
+				
+			}	
+			
+		}
+	}
+
+	function validateconfirm_password()
+{
+	var fconfirm_password = document.getElementById('confirm_password').value;
+	//var n = femail.length;
+	  if($password == $confirmPassword)
+            {
+               document.getElementById('disp').innerHTML="";
+		return true;
+            }
+            else
+            {
+            	document.getElementById('disp').innerHTML="your password and confirm password didn't match!";
+		return false;
+               
+            }
+
+    
+        
+        }
+
+
+	</script>
+</body>
+</html>
