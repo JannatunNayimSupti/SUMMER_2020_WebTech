@@ -66,7 +66,7 @@
 	<td>
 		<h1 align="center">
              Well Come<br>
-             <?=$_COOKIE[ 'userName']?>      
+             <?//=$_COOKIE[ 'userName']?>      
         </h1>
 	</td>
 	<tr>
