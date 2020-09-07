@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+		<h1 id="abc">Search Member</h1>
+
+		<form>
+			<input type="text" id="name" name="name" onkeyup="load()" /> 
+			<input type="button" id="button" name="button" value="Click" /> 
+		</form>
+
+		<div id="searchdata"></div>
+
+		<script>
+			function load(){
+
+				var name = document.getElementById('name').value;
+				var xhttp = new XMLHttpRequest();
+				
+				xhttp.open('POST', 'php/search.php', true);
+				xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			
+		</script>
+</body>
+</html>
